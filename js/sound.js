@@ -1,11 +1,19 @@
 var audioContext = 0 ;
 var gainNode = 0;
-var my_osc = 0;
-var isOscPlaying = false;
+var osc = 0;
+var isPlaying = false;
 
 var MAX_FREQ = 1200;
 var MIN_FREQ = 20;
 var MAX_GAIN = 1;
+
+var MAX_DURATION = 2;
+
+var duration = 0.5;
+var timer = null;
+
+var rate = 2;
+
 
 
 function setUpAudioContext() {
@@ -16,18 +24,32 @@ function setUpAudioContext() {
 }
 
 function playOsc() {
-	var osc = audioContext.createOscillator();
+	osc = audioContext.createOscillator();
 	osc.type = 0;
 	osc.frequency = 440;
 	osc.connect(gainNode);
 	osc.noteOn(0);
-	my_osc = osc;
+	// gainNode.gain.linearRampToValueAtTime()
+	osc.noteOff(audioContext.currentTime + duration);
 }
 
-function stopOsc() {
-	my_osc.noteOff(0);
-	my_osc = null;
+function toggle () {
+	isPlaying ? stopLoop() : startLoop();
+	isPlaying = !isPlaying;
+}
 
+function startLoop () {
+	playOsc();
+	var recurse = arguments.callee;
+	timer = setTimeout(function() {
+		recurse();
+	}, (rate) * 1000);
+}
+
+
+function stopLoop() {
+	clearTimeout(timer);
+	// osc = null;
 }
 
 
@@ -40,13 +62,12 @@ $(document).ready(function() {
 		var $toggle = $('#togglePlay');
 		var toggleState = $toggle.val();
 
-		if (toggleState === 'PLAY') {
-			playOsc();
-			$toggle.val('STOP');
-		} else {
-			stopOsc();
+		if (isPlaying) {
 			$toggle.val('PLAY');
+		} else {
+			$toggle.val('STOP');
 		}
+		toggle();
 	});
 
 	$("#freqSlider").change(function(e) {
@@ -82,19 +103,26 @@ $(document).ready(function() {
 		changeFreq(freq);
 		var amp = (canvas.height - y) / canvas.height;
 		changeGain(amp);
+		changePeriod(amp);
 
 	}
 
 	function changeFreq(freq) {
 		$('#freqSlider').val(freq);
 		$('#freqNumberBox').val(freq);
-		my_osc.frequency.linearRampToValueAtTime(freq, audioContext.currentTime + 0.02);
+		osc.frequency.linearRampToValueAtTime(freq, audioContext.currentTime + 0.02);
 	}
 
 	function changeGain(amp) {
 		$('#gainSlider').val(amp);
 		$('#gainNumberBox').val(amp);
 		gainNode.gain.linearRampToValueAtTime(amp, audioContext.currentTime + 0.02);
+	}
+
+	function changePeriod(amp) {
+		$('#gainSlider').val(amp);
+		$('#gainNumberBox').val(amp);
+		rate = amp;
 	}
 
 });
