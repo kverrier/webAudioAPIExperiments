@@ -103,7 +103,7 @@ $(document).ready(function() {
 		changeFreq(freq);
 		var amp = (canvas.height - y) / canvas.height;
 		changeGain(amp);
-		changePeriod(amp);
+		changeRate(amp);
 
 	}
 
@@ -119,10 +119,10 @@ $(document).ready(function() {
 		gainNode.gain.linearRampToValueAtTime(amp, audioContext.currentTime + 0.02);
 	}
 
-	function changePeriod(amp) {
-		$('#gainSlider').val(amp);
-		$('#gainNumberBox').val(amp);
-		rate = amp;
+	function changeRate(freq) {
+		$('#rateSlider').val(freq);
+		$('#rateNumberBox').val(freq);
+		rate = freq;
 	}
 
 });
