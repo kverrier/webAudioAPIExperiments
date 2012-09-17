@@ -28,7 +28,7 @@ $(document).ready(function() {
 
 
     function drawCircle (canvas_id, centerX, centerY) {
-        var canvas =  canvas_id;// $("#"+canvas_id)[0];
+        var canvas =  canvas_id;
         var context = canvas.getContext('2d');
         var radius = 10;
 

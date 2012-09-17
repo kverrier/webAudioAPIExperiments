@@ -3,6 +3,10 @@ var gainNode = 0;
 var my_osc = 0;
 var isOscPlaying = false;
 
+var MAX_FREQ = 1200;
+var MIN_FREQ = 20;
+var MAX_GAIN = 1;
+
 
 function setUpAudioContext() {
 	audioContext = new webkitAudioContext();
@@ -66,17 +70,17 @@ $(document).ready(function() {
 		}
 	});
 
-
 	function handleClick(e) {
 		var x = e.offsetX,
 			y = e.offsetY;
 		$('#xPos1').val(x);
 		$('#yPos1').val(y);
 
+		var canvas = e.target;
 
-		var freq = (1200 / 400) * x + 20;
+		var freq = (MAX_FREQ / canvas.width ) * x + MIN_FREQ;
 		changeFreq(freq);
-		var amp = (400 - y) / 400;
+		var amp = (canvas.height - y) / canvas.height;
 		changeGain(amp);
 
 	}
