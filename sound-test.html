@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+	<title>Loop-O-Matic</title>
+	<link rel="stylesheet" href="style/main.css" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Chango' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+
+	<script src="js/sound.js"></script> 
+	<script src="js/XY-pad.js"></script> 
+
+
+    <button class="button" onclick="playOsc();"> PLAY </button>
+    <button class="button" onclick="stopOsc();"> STOP </button>
+    <button class="button" onclick="playLoop(3);"> PLAY QUICK </button>
+<!--     <button class="button" onclick="playOsc(0);"> SINE </button> = 0, 
+    <button class="button" onclick="playOsc(1);"> SQUARE  </button> = 1,
+    <button class="button" onclick="playOsc(2);"> SAWTOOTH</button> = 2, 
+    <button class="button" onclick="playOsc(3);"> TRIANGLE</button> = 3, 
+    CUSTOM = 4;
+-->
+<div id="freqCtrlContainer">
+	Freq (Hz):
+	<input id="freqSlider" type="range" min="20" max="20000" step="1" value="440"  onChange="updateOscFreq(this.value);">
+	<input id="freqNumberBox" type="text" readonly="true" value="440">
+</div>
+
+<div id="gainCtrlContainer">
+ 	Gain (Amp):
+    <input id="gainSlider" type="range" min="0" max="1" step="0.01" value=".5"  onChange="updateOscGain(this.value);">
+	<input id="gainNumberBox" type="text" readonly="true" value="0.5">
+</div>
+
+
+
+</body>
+    
+</body>
+</html>

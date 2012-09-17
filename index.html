@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<title>Loop-O-Matic</title>
+	<link rel="stylesheet" href="style/main.css" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Chango' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" type="text/javascript"></script>
+	<script src="js/sound.js"></script> 
+	<script src="js/XY-pad.js"></script> 
+</head>
+<body>
+
+
+
+    <button class="button" onclick="playOsc();"> PLAY </button>
+    <button class="button" onclick="stopOsc();"> STOP </button>
+    <button class="button" onclick="playLoop(3);"> PLAY QUICK </button>
+
+<div id="freqCtrlContainer">
+	Freq (Hz):
+	<input id="freqSlider" type="range" min="20" max="20000" step="1" value="440" >
+	<input id="freqNumberBox" type="text" readonly="true" value="440">
+</div>
+
+<div id="gainCtrlContainer">
+ 	Gain (Amp):
+    <input id="gainSlider" type="range" min="0" max="1" step="0.01" value=".5">
+	<input id="gainNumberBox" type="text" readonly="true" value="0.5">
+</div>
+
+
+	<div class="xy-pad-container">
+		<canvas id="xy-pad1" class="xy-pad" height="400" width="400">
+			Need other browser to use canvas. Try Chrome.
+		</canvas>
+
+		<div id="xy-readout1">
+			X: <input type="text" id="yPos1" readonly=true value="50">
+			Y: <input type="text" id="xPos1" readonly=true value="50">
+		</div>
+	</div>
+
+</body>
+    
+</body>
+</html>
