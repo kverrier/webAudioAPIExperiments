@@ -156,7 +156,7 @@ $(document).ready(function() {
 	$("#freqSlider3").change(function(e) {
 		var freq = e.target.value;
 		$("#freqNumberBox3").val(freq);
-		osc2.changeFreq(freq);
+		osc3.changeFreq(freq);
 	});
 
 	$("#freqSlider4").change(function(e) {
