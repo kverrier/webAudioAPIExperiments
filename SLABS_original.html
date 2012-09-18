@@ -11,10 +11,9 @@
 	<script src="js/XY-pad.js"></script> 
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 
-		<div class="pad-container">
-
+			
 			<input id="togglePlay1" class="togglePlay" type="button" value="PLAY"/>
 
 			<div id="freqCtrlContainer">
@@ -50,10 +49,7 @@
 				</div>
 			</div>
 
-		</div>
 
-
-		<div class="pad-container">
 
 
 			<!-------->
@@ -92,93 +88,6 @@
 					X: <input type="text" id="yPos2" readonly=true value="50">
 					Y: <input type="text" id="xPos2" readonly=true value="50">
 				</div>
-			</div>
-
-		</div>
-
-
-
-			<!-------->
-			<div class="pad-container">
-
-
-				<input id="togglePlay3" class="togglePlay" type="button" value="PLAY"/>
-
-				<div id="freqCtrlContainer">
-					Freq (Hz) 4:
-					<input id="freqSlider5" class="freqSlider" type="range" min="20" max="20000" step="1" value="440" >
-					<input id="freqNumberBox5" class="freqNumberBow" type="text" readonly="true" value="440">
-				</div>
-
-
-
-				<div class="gainCtrlContainer">
-					Gain (Amp):
-					<input id="gainSlider" type="range" min="0" max="1" step="0.01" value=".5">
-					<input id="gainNumberBox5" type="text" readonly="true" value="0.5">
-				</div>
-
-
-				<div class="freqCtrlContainer">
-					Freq (Hz) 2:
-					<input id="freqSlider6" class="freqSlider" type="range" min="20" max="20000" step="1" value="440" >
-					<input id="freqNumberBox6" class="freqNumberBow" type="text" readonly="true" value="440">
-				</div>
-
-
-				<div class="xy-pad-container">
-					<canvas id="xy-pad3" class="xy-pad" height="400" width="400">
-						Need other browser to use canvas. Try Chrome.
-					</canvas>
-
-					<div id="xy-readout3">
-						X: <input type="text" id="yPos3" readonly=true value="50">
-						Y: <input type="text" id="xPos3" readonly=true value="50">
-					</div>
-				</div>
-
-
-			</div>
-
-			<div class="pad-container">
-
-
-				<input id="togglePlay4" class="togglePlay" type="button" value="PLAY"/>
-
-				<div id="freqCtrlContainer">
-					Freq (Hz) 4:
-					<input id="freqSlider7" class="freqSlider" type="range" min="20" max="20000" step="1" value="440" >
-					<input id="freqNumberBox7" class="freqNumberBow" type="text" readonly="true" value="440">
-				</div>
-
-
-
-				<div class="gainCtrlContainer">
-					Gain (Amp):
-					<input id="gainSlider" type="range" min="0" max="1" step="0.01" value=".5">
-					<input id="gainNumberBox8" type="text" readonly="true" value="0.5">
-				</div>
-
-
-				<div class="freqCtrlContainer">
-					Freq (Hz) 2:
-					<input id="freqSlider8" class="freqSlider" type="range" min="20" max="20000" step="1" value="440" >
-					<input id="freqNumberBox8" class="freqNumberBow" type="text" readonly="true" value="440">
-				</div>
-
-
-				<div class="xy-pad-container">
-					<canvas id="xy-pad4" class="xy-pad" height="400" width="400">
-						Need other browser to use canvas. Try Chrome.
-					</canvas>
-
-					<div id="xy-readout4">
-						X: <input type="text" id="yPos4" readonly=true value="50">
-						Y: <input type="text" id="xPos4" readonly=true value="50">
-					</div>
-				</div>
-
-
 			</div>
 
 
